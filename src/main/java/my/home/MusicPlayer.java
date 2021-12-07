@@ -80,4 +80,16 @@ public class MusicPlayer {
     public void playMusic() {
         getListMusic().forEach(Music::getSong);
     }
+
+    @Override
+    public String toString() {
+        return "MusicPlayer{" +
+                "listMusic=" + listMusic +
+                ", tons=" + tons +
+                ", settings=" + settings +
+                ", volume=" + volume +
+                ", name='" + name + '\'' +
+                ", song=" + song +
+                '}';
+    }
 }
