@@ -16,7 +16,17 @@ public class MusicPlayer {
     private int volume;
     private String name;
 
+    private Song song;
+
     public MusicPlayer() {
+    }
+
+    public Song getSong() {
+        return song;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 
     public int getVolume() {

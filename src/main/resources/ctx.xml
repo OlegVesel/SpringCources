@@ -16,7 +16,9 @@
     </bean>
     <bean id="rockMusicBean" class="my.home.genreOfMusic.RockMusic">
     </bean>
-
+    <bean id="songBean" class="my.home.Song" scope="prototype">
+        <constructor-arg name="length" value="20"/>
+    </bean>
 <!--    внедрение через конструктор по ссылке-->
 <!--    <bean id="musicPlayer" class="my.home.MusicPlayer">-->
 <!--        <constructor-arg ref="musicBean"/>-->
@@ -48,4 +50,6 @@
             </map>
         </property>
     </bean>
+
+
 </beans>

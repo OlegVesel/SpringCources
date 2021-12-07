@@ -15,6 +15,8 @@ public class Main {
         musicPlayer.viewSettings();
         musicPlayer.viewTons();
 
+        System.out.println(musicPlayer.getSong());
+
         context.close();
     }
 }

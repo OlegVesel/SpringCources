@@ -16,14 +16,16 @@
     </bean>
     <bean id="rockMusicBean" class="my.home.genreOfMusic.RockMusic">
     </bean>
-
+    <bean id="songBean" class="my.home.Song" scope="prototype">
+        <constructor-arg name="length" value="20"/>
+    </bean>
 <!--    внедрение через конструктор по ссылке-->
 <!--    <bean id="musicPlayer" class="my.home.MusicPlayer">-->
 <!--        <constructor-arg ref="musicBean"/>-->
 <!--    </bean>-->
 
 <!--    внедрение зависимостей через сеттеры-->
-<!--    плюс внедрение зависимостей в виде списка-->
+<!--    плюс внедрение зависимостей в виде list, set, map-->
     <bean id="musicPlayer" class="my.home.MusicPlayer">
         <property name="volume" value="${musicPlayer.volume}"/>
         <property name="name" value="${musicPlayer.name}"/>
@@ -48,4 +50,6 @@
             </map>
         </property>
     </bean>
+
+
 </beans>
