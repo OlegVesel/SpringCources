@@ -1,12 +1,17 @@
 package my.home;
 
 import my.home.genreOfMusic.Music;
+import my.home.genreOfMusic.RockMusic;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class MusicPlayer {
+    @Autowired
+    private RockMusic music;
+
     private List<Music> listMusic;
 
     private Set<Integer> tons;
@@ -18,7 +23,12 @@ public class MusicPlayer {
 
     private Song song;
 
-    public MusicPlayer() {
+    public MusicPlayer(){
+
+    }
+
+    public MusicPlayer(RockMusic music) {
+        this.music = music;
     }
 
     public Song getSong() {
@@ -75,6 +85,14 @@ public class MusicPlayer {
 
     public void viewTons(){
         getTons().forEach(System.out::println);
+    }
+
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(RockMusic music) {
+        this.music = music;
     }
 
     public void playMusic() {

@@ -1,10 +1,6 @@
 package my.home;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-
 import java.util.Random;
-@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Song {
     private int length;
 
@@ -29,7 +25,7 @@ public class Song {
     public void initMethod(){
         System.out.println("this is init method");
 
-        this.length =  new Random().nextInt(20);
+        this.length =  new Random().nextInt(15);
     }
 
     public void destroyMethod(){

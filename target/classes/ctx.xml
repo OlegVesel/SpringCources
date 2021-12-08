@@ -8,13 +8,11 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 <!--    подключение файла со свойствами-->
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
+    <context:component-scan base-package="my.home.genreOfMusic"/>
     <!--    создание бина без конструктора и сеттеров-->
     <bean id="classicalMusicBean" class="my.home.genreOfMusic.ClassicalMusic">
     </bean>
     <bean id="rapMusicBean" class="my.home.genreOfMusic.RapMusic">
-    </bean>
-    <bean id="rockMusicBean" class="my.home.genreOfMusic.RockMusic">
     </bean>
     <bean id="songBean" class="my.home.Song" scope="prototype"
         init-method="initMethod"
