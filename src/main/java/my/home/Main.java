@@ -11,11 +11,7 @@ public class Main {
 
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        System.out.println(musicPlayer.getMusic());
-
-
-        musicPlayer.playMusic();
-        System.out.println(musicPlayer.hashCode());
+        musicPlayer.playMusic(TypeOFMusic.CLASSICAL);
         System.out.println(musicPlayer.getSong().getLength());
 
         context.close();

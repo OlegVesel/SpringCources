@@ -1,13 +1,15 @@
 package my.home.genreOfMusic;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+
+import java.util.Random;
 
 
 @Component("rockEbol")
 public class RockMusic implements Music {
+    private String[] songs = {"Rock music 1", "Rock music 2", "Rock music 3"};
     @Override
-    public void getSong() {
-        System.out.println("Rock music");
+    public String getSong() {
+        return songs[new Random().nextInt(3)];
     }
 }

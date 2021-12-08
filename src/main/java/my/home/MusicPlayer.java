@@ -3,14 +3,17 @@ package my.home;
 import my.home.genreOfMusic.Music;
 import my.home.genreOfMusic.RockMusic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class MusicPlayer {
-    @Autowired
-    private RockMusic music;
+
+    private Music classical;
+    private Music rock;
+    private Music rap;
 
     private List<Music> listMusic;
 
@@ -27,8 +30,12 @@ public class MusicPlayer {
 
     }
 
-    public MusicPlayer(RockMusic music) {
-        this.music = music;
+    @Autowired
+    public MusicPlayer(@Qualifier("classicalMusicBean") Music classical, @Qualifier("rockEbol") Music rock,
+                       @Qualifier("rapMusicBean") Music rap) {
+        this.classical = classical;
+        this.rock = rock;
+        this.rap = rap;
     }
 
     public Song getSong() {
@@ -87,16 +94,18 @@ public class MusicPlayer {
         getTons().forEach(System.out::println);
     }
 
-    public Music getMusic() {
-        return music;
-    }
-
-    public void setMusic(RockMusic music) {
-        this.music = music;
-    }
-
-    public void playMusic() {
-        getListMusic().forEach(Music::getSong);
+    public void playMusic(TypeOFMusic type) {
+        switch (type){
+            case RAP:
+                System.out.println(rap.getSong());
+                break;
+            case ROCK:
+                System.out.println(rock.getSong());
+                break;
+            case CLASSICAL:
+                System.out.println(classical.getSong());
+                break;
+        }
     }
 
     @Override
